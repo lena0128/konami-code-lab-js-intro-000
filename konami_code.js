@@ -11,26 +11,27 @@ const codes = [
   "a"
 ];
 
-const myCodes = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-
 function init() {
+document.addEventListener('keydown', keyHandler, false);
 
-var index = 0;
-
-document.body.addEventListener('keydown', onKeyDownHandler);
-
-function onKeyDownHandler(e) {
-  const key = e.key;
-
-  if (key == myCodes[index]) {
-    index++;
+var keyHandler = function(event) {
+  console.log(event.key);
 }
-    if (myCodes.length === index) {
-      alert ("YOU DID IT!");
-      index = 0;
-  } else {
-    index = 0;
-  }
+
+var pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+var current = 0;
+
+if (pattern,indexOf(event.key) < 0) {
+current = 0;
+return;
+}
+
+current++;
+
+if (pattern.length === current) {
+current = 0;
+window.alert('You made it!');
 }
 }
 init();
