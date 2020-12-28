@@ -12,26 +12,36 @@ const codes = [
 ];
 
 function init() {
-document.addEventListener('keydown', keyHandler, false);
 
-var keyHandler = function(event) {
-  console.log(event.key);
+  document.body.addEventListener("keydown", keyHandler);
+
+  var myCodes =   [
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "b",
+  "a"
+];
+
+var myIndex = 0;
+
+  function keyHandler(event) {
+  const key = event.key;
+  if(myCodes[myIndex] === key) {
+  myIndex++;
+
+  if(myCodes.length === myIndex) {
+  window.alert("You made it!");
+  myIndex = 0;
+ }
+
+} else {
+ myIndex = 0;
+  }
+ }
 }
-
-var pattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-
-var current = 0;
-
-if (pattern,indexOf(event.key) < 0) {
-current = 0;
-return;
-}
-
-current++;
-
-if (pattern.length === current) {
-current = 0;
-window.alert('You made it!');
-}
-}
-init();
